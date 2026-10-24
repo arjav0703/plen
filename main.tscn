@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cjqo7gi1rd4mb"]
+
+[ext_resource type="Texture2D" uid="uid://btg2y3u5ke2ae" path="res://ground.png" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://noecytvl0osc" path="res://lilguy1.png" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://dkvair10h1ui8" path="res://character_body_2d.gd" id="2_7mycd"]
+[ext_resource type="Texture2D" uid="uid://dibrmxt3klt2y" path="res://lilguy2.png" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://dqnajj468sd0h" path="res://lilguy3.png" id="4_7mycd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pq04u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1bvp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lquwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7mycd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq04u"]
+size = Vector2(112, 219)
+
+[node name="Node" type="Node" unique_id=1153292453]
+
+[node name="Ground" type="Parallax2D" parent="." unique_id=1582708717]
+scroll_scale = Vector2(0.7, 1)
+scroll_offset = Vector2(392, 221)
+
+[node name="Ground" type="Sprite2D" parent="Ground" unique_id=986124054]
+position = Vector2(187.00003, 99.000015)
+scale = Vector2(0.36093754, 0.35958335)
+texture = ExtResource("1_ig7tw")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=378998551]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1798979674]
+script = ExtResource("2_7mycd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1898739680]
+position = Vector2(164, 392)
+scale = Vector2(0.11027774, 0.11027774)
+sprite_frames = SubResource("SpriteFrames_pq04u")
+frame_progress = 0.095689215
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1344449779]
+position = Vector2(138, 407)
+shape = SubResource("RectangleShape2D_pq04u")
