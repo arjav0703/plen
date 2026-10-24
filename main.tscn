@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c84ytb7685gpu" path="res://sky.png" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://btg2y3u5ke2ae" path="res://ground.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://noecytvl0osc" path="res://lilguy1.png" id="2_1bvp3"]
-[ext_resource type="Script" uid="uid://dkvair10h1ui8" path="res://character_body_2d.gd" id="2_7mycd"]
+[ext_resource type="Script" uid="uid://dkvair10h1ui8" path="res://plen script.gd" id="2_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dibrmxt3klt2y" path="res://lilguy2.png" id="3_lquwl"]
 [ext_resource type="Texture2D" uid="uid://dqnajj468sd0h" path="res://lilguy3.png" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://kclaiu1pll3v" path="res://plen1.png" id="7_4c57u"]
@@ -101,4 +101,4 @@ script = ExtResource("7_efxa6")
 position = Vector2(178.375, 278)
 scale = Vector2(0.08847222, 0.071248844)
 sprite_frames = SubResource("SpriteFrames_2bj2m")
-frame_progress = 0.13259928
+frame_progress = 0.47152403
