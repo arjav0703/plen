@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cjqo7gi1rd4mb"]
 
+[ext_resource type="Texture2D" uid="uid://c84ytb7685gpu" path="res://sky.png" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://btg2y3u5ke2ae" path="res://ground.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://noecytvl0osc" path="res://lilguy1.png" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://dkvair10h1ui8" path="res://character_body_2d.gd" id="2_7mycd"]
@@ -28,8 +29,18 @@ size = Vector2(112, 219)
 
 [node name="Node" type="Node" unique_id=1153292453]
 
+[node name="Sky" type="Parallax2D" parent="." unique_id=259792411]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(1156, 0)
+repeat_times = 2
+
+[node name="Sky2" type="Sprite2D" parent="Sky" unique_id=543804050]
+position = Vector2(575, 328)
+scale = Vector2(0.3623611, 0.36722225)
+texture = ExtResource("1_7mycd")
+
 [node name="Ground" type="Parallax2D" parent="." unique_id=1582708717]
-scroll_scale = Vector2(0.7, 1)
+scroll_scale = Vector2(1.3, 1)
 scroll_offset = Vector2(1292, 254)
 repeat_size = Vector2(1152, 0)
 repeat_times = 2
