@@ -1,4 +1,5 @@
-# Plen 🛩️
+<img width="600" height="300" alt="text_plen" src="https://github.com/user-attachments/assets/d74d060d-337a-449c-8d2e-f9a06b545e6c" />
+
 
 This is a simple godot game where a smol lil guy flies a paper plen and you have to make sure it doesn't hit birds
 
