@@ -4,8 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://btg2y3u5ke2ae" path="res://ground.png" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://jdnem111ambv" path="res://main.gd" id="1_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://noecytvl0osc" path="res://lilguy1.png" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://b41qe4wkowlm1" path="res://welcome_ui.gd" id="2_2cqfq"]
 [ext_resource type="Script" uid="uid://dkvair10h1ui8" path="res://plen script.gd" id="2_7mycd"]
-[ext_resource type="Script" uid="uid://dky6vklk4fn8a" path="res://lil_guy.gd" id="3_dg77c"]
+[ext_resource type="Texture2D" uid="uid://cf6ahcamtkbak" path="res://text_plen.png" id="2_vivmo"]
+[ext_resource type="Texture2D" uid="uid://btk06dwfqenp7" path="res://gameover.png" id="2_w48qg"]
 [ext_resource type="Texture2D" uid="uid://dibrmxt3klt2y" path="res://lilguy2.png" id="3_lquwl"]
 [ext_resource type="Texture2D" uid="uid://dqnajj468sd0h" path="res://lilguy3.png" id="4_7mycd"]
 [ext_resource type="Texture2D" uid="uid://0s57n6yr4hu8" path="res://plen1.png" id="7_4c57u"]
@@ -30,8 +32,8 @@ animations = [{
 "texture": ExtResource("4_7mycd")
 }],
 "loop": 1,
-"name": &"default",
-"speed": 1.0
+"name": &"intro",
+"speed": 3.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2bj2m"]
@@ -61,6 +63,31 @@ height = 118.000015
 [node name="Node" type="Node2D" unique_id=1109718483]
 script = ExtResource("1_ycdy4")
 
+[node name="WelcomeUI" type="CanvasLayer" parent="." unique_id=201649944]
+script = ExtResource("2_2cqfq")
+
+[node name="CenterContainer" type="CenterContainer" parent="WelcomeUI" unique_id=324433367]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WelcomeUI/CenterContainer" unique_id=797326766]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="WelcomeUI/CenterContainer/VBoxContainer" unique_id=783485429]
+position = Vector2(561.60004, 188)
+scale = Vector2(0.7320001, 0.81600004)
+texture = ExtResource("2_vivmo")
+
+[node name="Label" type="Label" parent="WelcomeUI/CenterContainer/VBoxContainer/Sprite2D" unique_id=1989798643]
+offset_left = -204.37158
+offset_top = 205.88232
+offset_right = 209.0
+offset_bottom = 430.147
+text = "Press Space to begin.
+
+Use arrow keys to navigate"
+horizontal_alignment = 1
+
 [node name="Ground collision" type="StaticBody2D" parent="." unique_id=1084380182]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground collision" unique_id=1202651736]
@@ -80,8 +107,8 @@ color = Color(0.45706457, 0.16670465, 0.2448855, 0.57254905)
 
 [node name="CenterContainer" type="CenterContainer" parent="GameOverUI/DimBackground" unique_id=167575664]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1154.0
+offset_bottom = 651.0
 
 [node name="PanelContainer" type="PanelContainer" parent="GameOverUI/DimBackground/CenterContainer" unique_id=1905623529]
 layout_mode = 2
@@ -89,13 +116,19 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="GameOverUI/DimBackground/CenterContainer/PanelContainer" unique_id=1107436864]
 layout_mode = 2
 
-[node name="GameOverLabel" type="Label" parent="GameOverUI/DimBackground/CenterContainer/PanelContainer/VBoxContainer" unique_id=1617069795]
-layout_mode = 2
-text = "GAME OVER"
+[node name="Sprite2D" type="Sprite2D" parent="GameOverUI/DimBackground/CenterContainer/PanelContainer/VBoxContainer" unique_id=655979151]
+position = Vector2(59.00009, -116.500015)
+scale = Vector2(0.9239999, 0.894)
+texture = ExtResource("2_w48qg")
 
-[node name="RestartButton" type="Button" parent="GameOverUI/DimBackground/CenterContainer/PanelContainer/VBoxContainer" unique_id=79903507]
-layout_mode = 2
-text = "Restart"
+[node name="RestartButton" type="Button" parent="GameOverUI/DimBackground/CenterContainer/PanelContainer/VBoxContainer/Sprite2D" unique_id=79903507]
+offset_left = -63.852966
+offset_top = 130.31322
+offset_right = 11.147034
+offset_bottom = 161.31322
+text = "RESTART"
+flat = true
+icon_alignment = 1
 
 [node name="Sky" type="Parallax2D" parent="." unique_id=259792411]
 scroll_scale = Vector2(0.5, 1)
@@ -119,13 +152,12 @@ scale = Vector2(0.36109376, 0.35979164)
 texture = ExtResource("1_ig7tw")
 
 [node name="Lil Guy" type="CharacterBody2D" parent="." unique_id=1798979674]
-script = ExtResource("3_dg77c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Lil Guy" unique_id=1898739680]
 position = Vector2(164, 392)
 scale = Vector2(0.11027774, 0.11027774)
 sprite_frames = SubResource("SpriteFrames_pq04u")
-frame_progress = 0.095689215
+animation = &"intro"
 
 [node name="Plen Body 2D" type="CharacterBody2D" parent="." unique_id=540698737]
 position = Vector2(1, 0)
