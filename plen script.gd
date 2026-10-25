@@ -3,12 +3,14 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 
 
-const SPEED = 300.0
+const SPEED = 250
 const JUMP_VELOCITY = -400.0
+
+func _ready() -> void:
+	velocity.x = SPEED
 
 
 func _physics_process(delta: float) -> void:
-	
 	var plen_rotation = 3.14/8
 	if Input.is_action_pressed("ui_up"):
 		_animated_sprite.rotation = -plen_rotation	
@@ -22,12 +24,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		_animated_sprite.stop()
 	
-
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 		
 	var lift := Input.get_axis("ui_up", "ui_down")
@@ -35,5 +31,20 @@ func _physics_process(delta: float) -> void:
 		velocity.y = lift * SPEED
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
+		
+			
+	
+	if Input.is_action_pressed("ui_right"):
+		velocity.x += 7
+	elif Input.is_action_pressed("ui_left"):
+		velocity.x += -10
+	else:
+		velocity.x += -1.5
+	
+	if velocity.x < 800:
+		velocity.y += 250
+		
+		if velocity.x < 1:
+			velocity.x = 0
 
 	move_and_slide()
