@@ -5,7 +5,9 @@ This is a simple godot game where a smol lil guy flies a paper plen and you have
 
 
 
-https://github.com/user-attachments/assets/8c329163-7b93-4d30-8298-9a77c647eb71
+
+https://github.com/user-attachments/assets/6e4c3537-3704-4168-9c37-0a3ebbeaf338
+
 
 
 ## Controls:
