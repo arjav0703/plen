@@ -11,4 +11,4 @@ func _ready():
 
 func _physics_process(_delta):
 	if get_parent():
-		global_position.x = get_parent().global_position.x
+		global_position.x = get_parent().global_position.x + 550
