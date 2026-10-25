@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://c2bwf2gey0xh4" path="res://plen2.png" id="8_efxa6"]
 [ext_resource type="Texture2D" uid="uid://cxgps1x5f7ej1" path="res://plen3.png" id="9_dg77c"]
 [ext_resource type="Texture2D" uid="uid://bn61q8166piod" path="res://plen4.png" id="10_ycdy4"]
+[ext_resource type="Script" uid="uid://cknle3qg2ulr" path="res://birb.gd" id="13_vivmo"]
+[ext_resource type="Texture2D" uid="uid://bpuv5rvx7d5l7" path="res://birb1.png" id="14_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://c8im0et1fxs2g" path="res://birb2.png" id="15_yaehf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pq04u"]
 animations = [{
@@ -47,6 +50,30 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("10_ycdy4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2bj2m"]
+radius = 14.0
+height = 118.000015
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fatf3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_2cqfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_yaehf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2cqfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_yaehf")
 }],
 "loop": 1,
 "name": &"default",
@@ -106,3 +133,17 @@ position = Vector2(177, 272.00003)
 scale = Vector2(0.08847222, 0.071248844)
 sprite_frames = SubResource("SpriteFrames_2bj2m")
 frame_progress = 0.47152403
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Plen Body 2D" unique_id=1734851583]
+position = Vector2(179, 271)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_2bj2m")
+
+[node name="Birb" type="CharacterBody2D" parent="." unique_id=540574138]
+script = ExtResource("13_vivmo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Birb" unique_id=925653142]
+position = Vector2(1043, 267)
+scale = Vector2(0.2733333, 0.27333334)
+sprite_frames = SubResource("SpriteFrames_fatf3")
+frame_progress = 0.9780027
