@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://c2bwf2gey0xh4" path="res://plen2.png" id="8_efxa6"]
 [ext_resource type="Texture2D" uid="uid://cxgps1x5f7ej1" path="res://plen3.png" id="9_dg77c"]
 [ext_resource type="Texture2D" uid="uid://bn61q8166piod" path="res://plen4.png" id="10_ycdy4"]
+[ext_resource type="AudioStream" uid="uid://bpkbrtc8xy3ei" path="res://mondamusic-retro-arcade-game-music-512837.mp3" id="16_2cqfq"]
+[ext_resource type="AudioStream" uid="uid://o5fd1pl67otm" path="res://dragon-studio-winter-wind-402331.mp3" id="16_yaehf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bj2m"]
 size = Vector2(1818, 169)
@@ -181,3 +183,11 @@ frame_progress = 0.47152403
 position = Vector2(179, 271)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_2bj2m")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Plen Body 2D" unique_id=280800851]
+stream = ExtResource("16_yaehf")
+autoplay = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2122514596]
+stream = ExtResource("16_2cqfq")
+autoplay = true
