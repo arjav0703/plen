@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c84ytb7685gpu" path="res://sky.png" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://btg2y3u5ke2ae" path="res://ground.png" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://jdnem111ambv" path="res://main.gd" id="1_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://noecytvl0osc" path="res://lilguy1.png" id="2_1bvp3"]
 [ext_resource type="Script" uid="uid://dkvair10h1ui8" path="res://plen script.gd" id="2_7mycd"]
 [ext_resource type="Script" uid="uid://dky6vklk4fn8a" path="res://lil_guy.gd" id="3_dg77c"]
@@ -12,9 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://c2bwf2gey0xh4" path="res://plen2.png" id="8_efxa6"]
 [ext_resource type="Texture2D" uid="uid://cxgps1x5f7ej1" path="res://plen3.png" id="9_dg77c"]
 [ext_resource type="Texture2D" uid="uid://bn61q8166piod" path="res://plen4.png" id="10_ycdy4"]
-[ext_resource type="Script" uid="uid://cknle3qg2ulr" path="res://birb.gd" id="13_vivmo"]
-[ext_resource type="Texture2D" uid="uid://bpuv5rvx7d5l7" path="res://birb1.png" id="14_2cqfq"]
-[ext_resource type="Texture2D" uid="uid://c8im0et1fxs2g" path="res://birb2.png" id="15_yaehf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pq04u"]
 animations = [{
@@ -32,9 +30,6 @@ animations = [{
 "name": &"default",
 "speed": 1.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pq04u"]
-size = Vector2(112, 219)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2bj2m"]
 animations = [{
@@ -60,27 +55,38 @@ animations = [{
 radius = 14.0
 height = 118.000015
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fatf3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_2cqfq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_yaehf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_2cqfq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_yaehf")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 2.0
-}]
+[node name="Node" type="Node2D" unique_id=1109718483]
+script = ExtResource("1_ycdy4")
 
-[node name="Node" type="Node" unique_id=1153292453]
+[node name="GameOverUI" type="CanvasLayer" parent="." unique_id=727611623]
+process_mode = 3
+
+[node name="DimBackground" type="ColorRect" parent="GameOverUI" unique_id=668381249]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.45706457, 0.16670465, 0.2448855, 0.57254905)
+
+[node name="CenterContainer" type="CenterContainer" parent="GameOverUI/DimBackground" unique_id=167575664]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="GameOverUI/DimBackground/CenterContainer" unique_id=1905623529]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GameOverUI/DimBackground/CenterContainer/PanelContainer" unique_id=1107436864]
+layout_mode = 2
+
+[node name="GameOverLabel" type="Label" parent="GameOverUI/DimBackground/CenterContainer/PanelContainer/VBoxContainer" unique_id=1617069795]
+layout_mode = 2
+text = "GAME OVER"
+
+[node name="RestartButton" type="Button" parent="GameOverUI/DimBackground/CenterContainer/PanelContainer/VBoxContainer" unique_id=79903507]
+layout_mode = 2
+text = "Restart"
 
 [node name="Sky" type="Parallax2D" parent="." unique_id=259792411]
 scroll_scale = Vector2(0.5, 1)
@@ -112,10 +118,6 @@ scale = Vector2(0.11027774, 0.11027774)
 sprite_frames = SubResource("SpriteFrames_pq04u")
 frame_progress = 0.095689215
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lil Guy" unique_id=1344449779]
-position = Vector2(138, 407)
-shape = SubResource("RectangleShape2D_pq04u")
-
 [node name="Plen Body 2D" type="CharacterBody2D" parent="." unique_id=540698737]
 position = Vector2(1, 0)
 script = ExtResource("2_7mycd")
@@ -138,12 +140,3 @@ frame_progress = 0.47152403
 position = Vector2(179, 271)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_2bj2m")
-
-[node name="Birb" type="CharacterBody2D" parent="." unique_id=540574138]
-script = ExtResource("13_vivmo")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Birb" unique_id=925653142]
-position = Vector2(1043, 267)
-scale = Vector2(0.2733333, 0.27333334)
-sprite_frames = SubResource("SpriteFrames_fatf3")
-frame_progress = 0.9780027

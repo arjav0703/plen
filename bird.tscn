@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://codesriff5arn"]
+
+[ext_resource type="Script" uid="uid://m43c6hvyf2cq" path="res://bird.gd" id="1_cchwj"]
+[ext_resource type="Texture2D" uid="uid://dp200x3aojybg" path="res://birb1.png" id="1_j88tq"]
+[ext_resource type="Texture2D" uid="uid://b3d16eop7xamv" path="res://birb2.png" id="2_cchwj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_axl6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j88tq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cchwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_j88tq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cchwj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr30m"]
+size = Vector2(78, 81)
+
+[node name="birb" type="Area2D" unique_id=1756775322]
+script = ExtResource("1_cchwj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=58139342]
+position = Vector2(1043, 267)
+scale = Vector2(0.2733333, 0.27333334)
+sprite_frames = SubResource("SpriteFrames_axl6x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=404270009]
+position = Vector2(1045, 265)
+shape = SubResource("RectangleShape2D_yr30m")
