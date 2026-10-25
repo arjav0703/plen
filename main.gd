@@ -30,6 +30,7 @@ func _ready() -> void:
 	spawn_timer.start(1.0)
 
 
+
 func _spawn_bird() -> void:
 	if game_over:
 		return
@@ -57,6 +58,17 @@ func _spawn_bird() -> void:
 
 func _on_bird_body_entered(body: Node2D) -> void:
 	if body == player and not game_over:
+		_end_game()
+
+func _process(_delta: float) -> void:
+	if game_over:
+		return
+
+	var screen_pos: Vector2 = player.get_global_transform_with_canvas().origin
+
+	var viewport_height: float = get_viewport().get_visible_rect().size.y
+
+	if screen_pos.y > viewport_height - 20.0:
 		_end_game()
 
 

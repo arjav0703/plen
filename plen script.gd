@@ -3,8 +3,7 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 
 
-const SPEED = 250
-const JUMP_VELOCITY = -400.0
+const SPEED = 300
 
 func _ready() -> void:
 	velocity.x = SPEED
@@ -41,7 +40,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x += -1.5
 	
-	if velocity.x < 800:
+	if velocity.x < 100:
 		velocity.y += 250
 		
 		if velocity.x < 1:
