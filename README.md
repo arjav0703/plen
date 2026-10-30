@@ -22,6 +22,6 @@ https://github.com/user-attachments/assets/6e4c3537-3704-4168-9c37-0a3ebbeaf338
 All the art is drawn by me in aseprite.
 
 ### AI usage declaration
-used ai occasionaly as i got stuck. some parts (~40%) of code are ai generated. no tutorials used.
+used ai occasionaly as i got stuck. some parts (~10-15%) of code are ai generated. no tutorials used.
 
 Music by <a href="https://pixabay.com/users/mondamusic-54713575/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=512837">MondaMusic</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=512837">Pixabay</a>
